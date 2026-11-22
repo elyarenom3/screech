@@ -1,0 +1,18 @@
+Screech
+Copyright 2026 Elya Renom
+
+This project is a derivative of the Sesame Robot Project by Dorian Todd
+(https://github.com/dorianborian/sesame-robot), licensed under the
+Apache License, Version 2.0. The reference copy of that project and its
+firmware is kept under ref/ with its original license.
+
+Changes in this repository compared with the original:
+- renamed robot, access point, hostname and boot splash (Screech)
+- new "arcade" OLED face bitmap set and per-face frame rates
+- retro appliance-styled web controller with Cyrillic subtitles
+- animation timing defaults (frameDelay, walkCycles) and face loop modes
+- home WiFi credentials moved to a git-ignored secrets.h
+- flash.sh one-command build and flash script for macOS
+- beginner build handbook (build.html) and a parts drawing pack (PDF)
+- body parts made from paper, reinforced with wooden dowels and glue,
+  using the Sesame STL shapes as reference

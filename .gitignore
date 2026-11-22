@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+
+# Home WiFi credentials (copy screech/secrets.example.h to screech/secrets.h)
+screech/secrets.h
+
+# Duplicate archive of ref/sesame-robot-main (already extracted next to it)
+ref/sesame-robot-main.zip
+
+# Arduino build output
+build/
+*.bin
+*.elf
+*.map
