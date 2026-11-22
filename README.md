@@ -44,7 +44,7 @@ This README documents everything in the repository: the hardware, the paper buil
 | `screech/face-bitmaps.h` | The "arcade" face set: 68 frames of 128x64 pixel bitmaps for 37 named faces. |
 | `screech/movement-sequences.h` | Servo naming, face animation modes, and every pose and walking sequence. |
 | `screech/flash.sh` | One-command compile and flash for macOS using the Arduino IDE's bundled `arduino-cli`. |
-| `screech/secrets.example.h` | Template for `secrets.h`, which holds the home WiFi name and password. `secrets.h` is ignored by git. |
+| `screech/secrets.example.h` | Template for `secrets.h`, which holds the robot's access-point password and the home WiFi name and password. `secrets.h` is ignored by git. |
 | `screech/README.md` | Short quick-start for flashing. |
 | `shapes/` | The three Sesame STL files I used as physical reference for the paper parts: `R1-v117.stl`, `L1-v117.stl`, `L3-v117.stl`. |
 | `face-bitmaps.h` | An identical copy of `screech/face-bitmaps.h` kept at the top level. |
@@ -189,9 +189,9 @@ The firmware is a fork of the upstream Sesame firmware (`ref/sesame-firmware-mai
 | Area | Sesame | Screech |
 | --- | --- | --- |
 | Robot name | Sesame | Screech. Boot splash shows `SCREECH` for 2 seconds. |
-| Access point | `Sesame-Controller` / `12345678` | `elya_screech` / `hotwh33ls` |
+| Access point | `Sesame-Controller` / `12345678` | `elya_screech`, password set in `secrets.h` |
 | mDNS hostname | `sesame-robot.local` | `screech.local` |
-| Home WiFi credentials | Hard-coded in the sketch | In `secrets.h`, ignored by git. `secrets.example.h` is the template. |
+| Access-point password and home WiFi credentials | Hard-coded in the sketch | In `secrets.h`, ignored by git. `secrets.example.h` is the template. |
 | `frameDelay` | 100 ms | 50 ms (faster walking frames) |
 | `walkCycles` | 10, max 50 in the settings panel | 75, max 200 in the settings panel |
 | Face frame rates | Mostly 1 fps | Per-face rates tuned to the new artwork: walk 4, rest 1, swim 3, dance 3, wave 2, point 4, stand 1, cute 2, pushup 3, freaky 2, bow 1, worm 4, shake 4, shrug 2, dead 1, crab 3 |
@@ -206,7 +206,7 @@ Everything else, including the HTTP API, the WiFi provisioning state machine, th
 
 **`screech.ino`**
 
-- Configuration block: AP name and password, `#include "secrets.h"` for the home network, OLED size and address, I2C pins, the `servoPins` array for the S2 Mini (with the Distro Board V1, V2 and V3 pinouts kept as comments), the `servoSubtrim` offsets, and the animation constants.
+- Configuration block: AP name, `#include "secrets.h"` for the AP password and the home network, OLED size and address, I2C pins, the `servoPins` array for the S2 Mini (with the Distro Board V1, V2 and V3 pinouts kept as comments), the `servoSubtrim` offsets, and the animation constants.
 - `faceEntries[]` is generated from the `FACE_LIST` macro and maps a face name to its frames. `faceFpsEntries[]` sets the frame rate per face.
 - HTTP handlers: `handleRoot`, `handleCommandWeb`, `handleGetSettings`, `handleSetSettings`, `handleGetStatus`, `handleApiCommand`, `handleWifiScan`, `handleWifiConnect`, `handleWifiStatus`, `handleNotFound`.
 - WiFi: `connectToWifi` (blocking, used at boot), `updateWifiSetup` (non-blocking state machine for connects started from the web page, plus a 5 second link watchdog), `startMdns`, `announceNetwork`.
@@ -247,9 +247,10 @@ Prerequisites:
 cp screech/secrets.example.h screech/secrets.h
 ```
 
-Then edit it. Leave the SSID empty or `ENABLE_NETWORK_MODE` false for access-point-only use.
+Then edit it. Set your own access-point password. Leave the SSID empty or `ENABLE_NETWORK_MODE` false for access-point-only use.
 
 ```cpp
+#define AP_PASS "YourRobotPassword"      // at least 8 characters
 #define NETWORK_SSID "YourHomeNetwork"   // 2.4 GHz only
 #define NETWORK_PASS "YourPassword"
 #define ENABLE_NETWORK_MODE true
@@ -277,7 +278,7 @@ Compile result on the current code: 1,162,306 bytes of program storage (88%) and
 ### First connection
 
 1. Power the robot. The OLED shows `SCREECH`, then "Setting up WiFi...", then the rest face.
-2. On a phone, join the WiFi network `elya_screech` with password `hotwh33ls`.
+2. On a phone, join the WiFi network `elya_screech` with the `AP_PASS` password from your `secrets.h`.
 3. The captive portal opens the controller page by itself. If it does not, open `http://192.168.4.1` in a browser.
 4. For the first 30 seconds without input, a line scrolls across the top of the face with the network name, password and IP. It stops once you press anything.
 

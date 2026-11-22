@@ -10,15 +10,13 @@
 #include "movement-sequences.h"
 #include "captive-portal.h"
 
-// --- Access Point Configuration ---
-// This is the network the Robot will create
+// --- Access Point and Station Configuration ---
+// AP_SSID is the network the Robot will create. Its password (AP_PASS, at
+// least 8 characters) and the optional home network credentials live in
+// secrets.h, which git ignores. Copy secrets.example.h to secrets.h and fill
+// it in. Leave NETWORK_SSID empty (or ENABLE_NETWORK_MODE false) for
+// access-point-only mode.
 #define AP_SSID  "elya_screech"
-#define AP_PASS  "hotwh33ls" // Must be at least 8 characters
-
-// --- Station Mode Configuration (Optional) ---
-// Home network credentials live in secrets.h, which git ignores.
-// Copy secrets.example.h to secrets.h and fill in your own network.
-// Leave NETWORK_SSID empty (or ENABLE_NETWORK_MODE false) for AP-only mode.
 #include "secrets.h"
 
 #define SCREEN_WIDTH 128

@@ -16,7 +16,7 @@ for i in $(seq 1 300); do
   for P in /dev/cu.usbmodem*; do
     [ -e "$P" ] || continue
     if "$ET/esptool" --chip esp32s2 --port "$P" --before no-reset --after hard-reset --connect-attempts 2 write-flash 0x0 "$BUILD/screech.ino.merged.bin"; then
-      echo "Done. Look for the WiFi network: elya_screech  (password: hotwh33ls)"
+      echo "Done. Look for the WiFi network: elya_screech  (password: AP_PASS from secrets.h)"
       exit 0
     fi
   done

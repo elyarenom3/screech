@@ -2,7 +2,7 @@
 
 Robot name: `screech`
 WiFi network: `elya_screech`
-Password: `hotwh33ls`
+Password: the `AP_PASS` value in `secrets.h`
 Control page: `http://192.168.4.1` (opens automatically when you join the network)
 
 ## Flash to the S2 Mini
@@ -27,11 +27,11 @@ After the upload, tap **RST** once if the board does not restart by itself.
 
 ## Settings in the code
 
-Before the first build, copy `secrets.example.h` to `secrets.h` and put your home WiFi name and password in it (or leave it blank for access-point-only mode). `secrets.h` is ignored by git.
+Before the first build, copy `secrets.example.h` to `secrets.h` and set the robot's access-point password (`AP_PASS`) and your home WiFi name and password (or leave the home WiFi blank for access-point-only mode). `secrets.h` is ignored by git.
 
 In `screech.ino`:
 
-- `AP_SSID` and `AP_PASS`: the WiFi network name and password.
+- `AP_SSID`: the WiFi network name. The password `AP_PASS` lives in `secrets.h`.
 - `deviceHostname`: the name used on your home network (`screech.local`).
 - Pins are already set for the S2 Mini (I2C 33/35, servos 1, 2, 4, 6, 8, 10, 13, 14).
 
