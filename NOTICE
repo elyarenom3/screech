@@ -13,6 +13,6 @@ Changes in this repository compared with the original:
 - animation timing defaults (frameDelay, walkCycles) and face loop modes
 - home WiFi credentials moved to a git-ignored secrets.h
 - flash.sh one-command build and flash script for macOS
-- beginner build handbook (build.html) and a parts drawing pack (PDF)
+- a parts drawing pack (PDF)
 - body parts made from paper, reinforced with wooden dowels and glue,
   using the Sesame STL shapes as reference

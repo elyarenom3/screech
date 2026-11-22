@@ -4,7 +4,7 @@ Screech is a small four-legged walking robot with an animated OLED face, control
 
 The body is hand-made: I used some of the Sesame STL shapes as reference and built my own parts out of paper, reinforced with wooden dowels and glue. The electronics are based on the hand-wired LOLIN S2 Mini.
 
-This README documents everything in the repository: the hardware, the paper build, the wiring, the firmware, the web controller, the HTTP and serial interfaces, the face system, the build handbook, and the reference material it was all built from.
+This README documents everything in the repository: the hardware, the paper build, the wiring, the firmware, the web controller, the HTTP and serial interfaces, the face system, and the reference material it was all built from.
 
 ---
 
@@ -28,10 +28,9 @@ This README documents everything in the repository: the hardware, the paper buil
 11. [Faces](#faces)
 12. [Movement and poses](#movement-and-poses)
 13. [Calibration](#calibration)
-14. [Build handbook (build.html)](#build-handbook-buildhtml)
-15. [Reference material (ref/)](#reference-material-ref)
-16. [Troubleshooting](#troubleshooting)
-17. [Credits and license](#credits-and-license)
+14. [Reference material (ref/)](#reference-material-ref)
+15. [Troubleshooting](#troubleshooting)
+16. [Credits and license](#credits-and-license)
 
 ---
 
@@ -49,7 +48,6 @@ This README documents everything in the repository: the hardware, the paper buil
 | `screech/README.md` | Short quick-start for flashing. |
 | `shapes/` | The three Sesame STL files I used as physical reference for the paper parts: `R1-v117.stl`, `L1-v117.stl`, `L3-v117.stl`. |
 | `face-bitmaps.h` | An identical copy of `screech/face-bitmaps.h` kept at the top level. |
-| `build.html` | A self-contained beginner build handbook, 43 steps with diagrams. Open it in a browser. |
 | `ref/sesame-robot-main/` | A full copy of the upstream Sesame repository: CAD, STLs, PCB files, build guide, wiring guide, firmware, photos. |
 | `ref/sesame-firmware-main/` | The upstream firmware exactly as I started from it, for diffing. |
 | `ref/sesame-parts-drawings.pdf` | A 65-sheet drawing pack of every Sesame printed part, with millimetre grids and actual-size templates. |
@@ -505,27 +503,6 @@ If a servo moves the wrong way or jitters, upstream's note applies: in most case
 
 ---
 
-## Build handbook (build.html)
-
-`build.html` is a self-contained handbook for a first-time builder: "From an empty desk to a walking, talking robot", 43 steps in 10 parts, each with a labelled diagram, a parts list, numbered actions, a "Why?" explanation under every action, and a checklist. Progress ticks are saved in the browser. Open the file directly in any browser. It loads its fonts from Google Fonts and nothing else from the internet.
-
-| Part | Steps | Covers |
-| --- | --- | --- |
-| 1 | reading | How the robot works, joint names, servo map |
-| 2 | 1 to 3 | Project files, printing the 11 parts, unpacking and charging |
-| 3 | 4 to 8 | Arduino IDE, ESP32 support, libraries, first upload to the S2 Mini |
-| 4 | 9 to 12 | Soldering practice, wire and heat-shrink practice, multimeter basics |
-| 5 | 13 to 18 | Header block, rails, signal wires, S2 Mini, display, bench test |
-| 6 | 19 to 24 | Horns, leg servos, body servos, labelling, switch and display in the top cover, seating the electronics |
-| 7 | 25 to 27 | Battery lead, switch, buck converter set to 5.1 V, rails |
-| 8 | 28 to 32 | Power up, attach hips and legs, tidy wires, close, first walk |
-| 9 | reference | Charging, fine-tuning, troubleshooting |
-| 10 | 33 to 43 | Adding a voice: joining home WiFi at boot, an M5Stack Atom EchoS3R voice module, a relay on the laptop, speech to text and text to speech, connecting Syd, powering and mounting the module, an optional custom wake word |
-
-The handbook was written against the upstream Sesame firmware and file names (`sesame-firmware-main.ino`, `sesame-robot.local`). For this repository substitute `screech.ino`, `screech.local`, and the `secrets.h` step described above. The handbook also states that its two voice-module sketches were compiled and run on a simulated board and have yet to run on a real Atom EchoS3R, so allow time for adjustments there.
-
----
-
 ## Reference material (ref/)
 
 Everything the build was derived from is kept in `ref/` so the repository is self-contained.
@@ -566,6 +543,6 @@ Everything the build was derived from is kept in `ref/` so the repository is sel
 
 - Sesame Robot Project by [Dorian Todd](https://www.doriantodd.com/): design, firmware, guides and CAD. [github.com/dorianborian/sesame-robot](https://github.com/dorianborian/sesame-robot).
 - S2 Mini wiring diagram by captianeverypowersr on the Sesame Discord.
-- Screech firmware changes, arcade face set, web controller theme, paper body, build handbook and drawing pack: Elya Renom.
+- Screech firmware changes, arcade face set, web controller theme, paper body and drawing pack: Elya Renom.
 
 Licensed under the Apache License, Version 2.0, the same license as Sesame. See `LICENSE` and `NOTICE`.

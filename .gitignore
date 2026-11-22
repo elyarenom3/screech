@@ -12,3 +12,6 @@ build/
 *.bin
 *.elf
 *.map
+
+# Local-only beginner handbook, kept out of GitHub
+build.html
