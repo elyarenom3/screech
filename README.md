@@ -1,6 +1,6 @@
 # Screech
 
-Screech is a small four-legged walking robot with an animated OLED face, controlled from a phone over WiFi. It is an adaptation of the the open-source [Sesame Robot Project](https://github.com/dorianborian/sesame-robot) by Dorian Todd, with my own firmware changes, my own face artwork, my own web controller styling, and a body I designed and made by hand.
+Screech is a small four-legged walking robot with an animated OLED face, controlled from a phone over WiFi. It is an adaptation of the the open-source [Sesame Robot Project](https://github.com/dorianborian/sesame-robot) by Dorian Todd, with my own firmware and hardware changes, my own face artwork, my own web controller styling, and a body I designed and made by hand.
 
 The body is hand-made: I used some of the Sesame STL shapes as reference and built my own parts out of paper, reinforced with wooden dowels and glue. The electronics are based on the hand-wired LOLIN S2 Mini.
 
